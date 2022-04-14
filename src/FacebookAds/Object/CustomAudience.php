@@ -554,6 +554,7 @@ class CustomAudience extends AbstractCrudObject {
    *
    * @param array $users
    * @param array $types
+   * @param array $app_ids
    * @param bool $is_hashed
    * @param bool $is_normalized
    * @return array
@@ -561,9 +562,10 @@ class CustomAudience extends AbstractCrudObject {
   public function addUsersMultiKey(
     array $users,
     array $types,
+    array $app_ids = array(),
     $is_hashed = false,
     $is_normalized = false) {
-    $params = $this->formatParamsMultiKey($users, $types, $is_hashed, $is_normalized);
+    $params = $this->formatParamsMultiKey($users, $types, $app_ids, $is_hashed, $is_normalized);
     return $this->getApi()->call(
       '/'.$this->assureId().'/users',
       RequestInterface::METHOD_POST,
@@ -576,6 +578,7 @@ class CustomAudience extends AbstractCrudObject {
    *
    * @param array $users
    * @param array $types
+   * @param array $app_ids
    * @param bool $is_hashed
    * @param bool $is_normalized
    * @return array
@@ -583,9 +586,10 @@ class CustomAudience extends AbstractCrudObject {
   public function removeUsersMultiKey(
     array $users,
     array $types,
+    array $app_ids = array(),
     $is_hashed = false,
     $is_normalized = false) {
-    $params = $this->formatParamsMultiKey($users, $types, $is_hashed, $is_normalized);
+    $params = $this->formatParamsMultiKey($users, $types, $app_ids, $is_hashed, $is_normalized);
     return $this->getApi()->call(
       '/'.$this->assureId().'/users',
       RequestInterface::METHOD_DELETE,
@@ -597,6 +601,7 @@ class CustomAudience extends AbstractCrudObject {
    *
    * @param array $users
    * @param array $types
+   * @param array $app_ids
    * @param bool $is_hashed
    * @param bool $is_normalized
    * @return array
@@ -604,6 +609,7 @@ class CustomAudience extends AbstractCrudObject {
   protected function formatParamsMultiKey(
     array $users,
     array $types,
+    array $app_ids = array(),
     $is_hashed = false,
     $is_normalized = false) {
 
@@ -641,6 +647,10 @@ class CustomAudience extends AbstractCrudObject {
       'schema' => $types,
       'data' => $users,
     );
+
+      if (!empty($app_ids)) {
+          $payload['app_ids'] = $app_ids;
+      }
 
     return array('payload' => $payload);
   }
