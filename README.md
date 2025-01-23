@@ -23,5 +23,5 @@ Il existe un tag pour chaque version : `21.0.3`.
     * Soit avec un peu de chance en appliquant le commit `git cherry-pick 35dfd34`
 * Vérifier la présence de votre commit juste après le dernier commit de `21.0.3` : `git log`
 * Penser à reprendre le README et à l'adapter aux nouvelles versions. Je vous laisse faire le copier/coller.
-* Communiquer vos modifications à Github : `git push origin`
+* Communiquer vos modifications à Github : `git push --set-upstream origin fix/v21`
 * Vous pouvez à présent mettre à jour le `composer.json` du projet [socialtrip](https://github.com/shetravels/socialtrip/blob/master/composer.json).
