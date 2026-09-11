@@ -7,19 +7,19 @@ Une PR existe mais l'équipe de Facebook ne s'occupe absolument pas de ce projet
 Prenons l'exemple d'une mise à jour vers la version v26 de l'API.
 Il existe un tag pour chaque version : `26.0.1`.
 * Récupérer le projet sur votre environnement de développement
- * `git clone git@github.com:shetravels/facebook-php-business-sdk.git`
- * `git fetch`
+  * `git clone git@github.com:shetravels/facebook-php-business-sdk.git`
+  * `git fetch`
 * Récupérer le projet de Facebook
- * `git remote add facebook git@github.com:facebook/facebook-php-business-sdk.git`
- * `git fetch facebook`
+  * `git remote add facebook git@github.com:facebook/facebook-php-business-sdk.git`
+  * `git fetch facebook`
 * Vérifier la présence de deux origines : `git remote -v`
 * Positionner son projet sur le commit associé au tag `26.0.1`
- * `git checkout 26.0.1`
+  * `git checkout 26.0.1`
 * Démarrer une nouvelle branche
- * `git checkout -b fix/v26`
+  * `git checkout -b fix/v26`
 * Appliquer les modifications du commit [35dfd34](https://github.com/shetravels/facebook-php-business-sdk/commit/35dfd34)
- * Soit manuellement depuis votre IDE, nom du commit : `Add argument on multi-key methods`
- * Soit avec un peu de chance en appliquant le commit `git cherry-pick 35dfd34`
+  * Soit manuellement depuis votre IDE, nom du commit : `Add argument on multi-key methods`
+  * Soit avec un peu de chance en appliquant le commit `git cherry-pick 35dfd34`
 * Vérifier la présence de votre commit juste après le dernier commit de `26.0.1` : `git log`
 * Penser à reprendre le README et à l'adapter aux nouvelles versions. Je vous laisse faire le copier/coller.
 * Communiquer vos modifications à Github : `git push --set-upstream origin fix/v26`
